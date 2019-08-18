@@ -1,21 +1,23 @@
 //
 //  AppDelegate.swift
-//  WillowCreek
+//  WillowCreek 
 //
 //  Created by Jarrod Mitchell on 8/17/19.
 //  Copyright © 2019 Jarrod Mitchell. All rights reserved.
 //
 
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        FirebaseApp.configure()
+        
         return true
     }
 

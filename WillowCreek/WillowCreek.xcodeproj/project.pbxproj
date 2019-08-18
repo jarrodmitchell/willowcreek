@@ -7,14 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7DB7DA5DA3A7DAFA02BF3447 /* Pods_WillowCreek.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA748ACEB1D9C740752F0B73 /* Pods_WillowCreek.framework */; };
 		A2BA734D2308823300C3B7A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BA734C2308823300C3B7A6 /* AppDelegate.swift */; };
 		A2BA734F2308823300C3B7A6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BA734E2308823300C3B7A6 /* ViewController.swift */; };
 		A2BA73522308823300C3B7A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2BA73502308823300C3B7A6 /* Main.storyboard */; };
 		A2BA73542308823400C3B7A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2BA73532308823400C3B7A6 /* Assets.xcassets */; };
 		A2BA73572308823400C3B7A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2BA73552308823400C3B7A6 /* LaunchScreen.storyboard */; };
+		A2BA735F2308AB3A00C3B7A6 /* GoogleService-Info-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = A2BA735E2308AB3A00C3B7A6 /* GoogleService-Info-2.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		87938F6FA0631C461C628EF3 /* Pods-WillowCreek.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WillowCreek.release.xcconfig"; path = "Target Support Files/Pods-WillowCreek/Pods-WillowCreek.release.xcconfig"; sourceTree = "<group>"; };
 		A2BA73492308823300C3B7A6 /* WillowCreek.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WillowCreek.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2BA734C2308823300C3B7A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A2BA734E2308823300C3B7A6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +25,9 @@
 		A2BA73532308823400C3B7A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A2BA73562308823400C3B7A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A2BA73582308823400C3B7A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A2BA735E2308AB3A00C3B7A6 /* GoogleService-Info-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-2.plist"; sourceTree = "<group>"; };
+		E5B5DD817B63E380450E6538 /* Pods-WillowCreek.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WillowCreek.debug.xcconfig"; path = "Target Support Files/Pods-WillowCreek/Pods-WillowCreek.debug.xcconfig"; sourceTree = "<group>"; };
+		FA748ACEB1D9C740752F0B73 /* Pods_WillowCreek.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WillowCreek.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +35,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DB7DA5DA3A7DAFA02BF3447 /* Pods_WillowCreek.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		656E1422BC8D37091A149488 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FA748ACEB1D9C740752F0B73 /* Pods_WillowCreek.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A2BA73402308823200C3B7A6 = {
 			isa = PBXGroup;
 			children = (
 				A2BA734B2308823300C3B7A6 /* WillowCreek */,
 				A2BA734A2308823300C3B7A6 /* Products */,
+				EC06C5F36472974EDC313B5D /* Pods */,
+				656E1422BC8D37091A149488 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,8 +77,19 @@
 				A2BA73532308823400C3B7A6 /* Assets.xcassets */,
 				A2BA73552308823400C3B7A6 /* LaunchScreen.storyboard */,
 				A2BA73582308823400C3B7A6 /* Info.plist */,
+				A2BA735E2308AB3A00C3B7A6 /* GoogleService-Info-2.plist */,
 			);
 			path = WillowCreek;
+			sourceTree = "<group>";
+		};
+		EC06C5F36472974EDC313B5D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E5B5DD817B63E380450E6538 /* Pods-WillowCreek.debug.xcconfig */,
+				87938F6FA0631C461C628EF3 /* Pods-WillowCreek.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +99,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A2BA735B2308823400C3B7A6 /* Build configuration list for PBXNativeTarget "WillowCreek" */;
 			buildPhases = (
+				CA7D90AD28992BB864A29D85 /* [CP] Check Pods Manifest.lock */,
 				A2BA73452308823300C3B7A6 /* Sources */,
 				A2BA73462308823300C3B7A6 /* Frameworks */,
 				A2BA73472308823300C3B7A6 /* Resources */,
+				E20C7D4ECAB3D2AB7598675B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -124,11 +154,54 @@
 			files = (
 				A2BA73572308823400C3B7A6 /* LaunchScreen.storyboard in Resources */,
 				A2BA73542308823400C3B7A6 /* Assets.xcassets in Resources */,
+				A2BA735F2308AB3A00C3B7A6 /* GoogleService-Info-2.plist in Resources */,
 				A2BA73522308823300C3B7A6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CA7D90AD28992BB864A29D85 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WillowCreek-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E20C7D4ECAB3D2AB7598675B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WillowCreek/Pods-WillowCreek-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WillowCreek/Pods-WillowCreek-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WillowCreek/Pods-WillowCreek-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A2BA73452308823300C3B7A6 /* Sources */ = {
@@ -280,6 +353,7 @@
 		};
 		A2BA735C2308823400C3B7A6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E5B5DD817B63E380450E6538 /* Pods-WillowCreek.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -297,6 +371,7 @@
 		};
 		A2BA735D2308823400C3B7A6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 87938F6FA0631C461C628EF3 /* Pods-WillowCreek.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
