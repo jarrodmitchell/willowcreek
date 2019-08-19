@@ -3,29 +3,33 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		7DB7DA5DA3A7DAFA02BF3447 /* Pods_WillowCreek.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA748ACEB1D9C740752F0B73 /* Pods_WillowCreek.framework */; };
+		A2767416230A2F90001FA091 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2767415230A2F90001FA091 /* DashboardViewController.swift */; };
+		A2767418230A2FF8001FA091 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2767417230A2FF8001FA091 /* MessageViewController.swift */; };
 		A2BA734D2308823300C3B7A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BA734C2308823300C3B7A6 /* AppDelegate.swift */; };
-		A2BA734F2308823300C3B7A6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BA734E2308823300C3B7A6 /* ViewController.swift */; };
+		A2BA734F2308823300C3B7A6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BA734E2308823300C3B7A6 /* LoginViewController.swift */; };
 		A2BA73522308823300C3B7A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2BA73502308823300C3B7A6 /* Main.storyboard */; };
 		A2BA73542308823400C3B7A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2BA73532308823400C3B7A6 /* Assets.xcassets */; };
 		A2BA73572308823400C3B7A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2BA73552308823400C3B7A6 /* LaunchScreen.storyboard */; };
-		A2BA735F2308AB3A00C3B7A6 /* GoogleService-Info-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = A2BA735E2308AB3A00C3B7A6 /* GoogleService-Info-2.plist */; };
+		A2BA735F2308AB3A00C3B7A6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A2BA735E2308AB3A00C3B7A6 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		87938F6FA0631C461C628EF3 /* Pods-WillowCreek.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WillowCreek.release.xcconfig"; path = "Target Support Files/Pods-WillowCreek/Pods-WillowCreek.release.xcconfig"; sourceTree = "<group>"; };
+		A2767415230A2F90001FA091 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		A2767417230A2FF8001FA091 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		A2BA73492308823300C3B7A6 /* WillowCreek.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WillowCreek.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2BA734C2308823300C3B7A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A2BA734E2308823300C3B7A6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A2BA734E2308823300C3B7A6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A2BA73512308823300C3B7A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A2BA73532308823400C3B7A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A2BA73562308823400C3B7A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A2BA73582308823400C3B7A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A2BA735E2308AB3A00C3B7A6 /* GoogleService-Info-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-2.plist"; sourceTree = "<group>"; };
+		A2BA735E2308AB3A00C3B7A6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E5B5DD817B63E380450E6538 /* Pods-WillowCreek.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WillowCreek.debug.xcconfig"; path = "Target Support Files/Pods-WillowCreek/Pods-WillowCreek.debug.xcconfig"; sourceTree = "<group>"; };
 		FA748ACEB1D9C740752F0B73 /* Pods_WillowCreek.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WillowCreek.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -72,12 +76,14 @@
 			isa = PBXGroup;
 			children = (
 				A2BA734C2308823300C3B7A6 /* AppDelegate.swift */,
-				A2BA734E2308823300C3B7A6 /* ViewController.swift */,
+				A2BA734E2308823300C3B7A6 /* LoginViewController.swift */,
+				A2767415230A2F90001FA091 /* DashboardViewController.swift */,
+				A2767417230A2FF8001FA091 /* MessageViewController.swift */,
 				A2BA73502308823300C3B7A6 /* Main.storyboard */,
 				A2BA73532308823400C3B7A6 /* Assets.xcassets */,
 				A2BA73552308823400C3B7A6 /* LaunchScreen.storyboard */,
 				A2BA73582308823400C3B7A6 /* Info.plist */,
-				A2BA735E2308AB3A00C3B7A6 /* GoogleService-Info-2.plist */,
+				A2BA735E2308AB3A00C3B7A6 /* GoogleService-Info.plist */,
 			);
 			path = WillowCreek;
 			sourceTree = "<group>";
@@ -88,7 +94,6 @@
 				E5B5DD817B63E380450E6538 /* Pods-WillowCreek.debug.xcconfig */,
 				87938F6FA0631C461C628EF3 /* Pods-WillowCreek.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -154,7 +159,7 @@
 			files = (
 				A2BA73572308823400C3B7A6 /* LaunchScreen.storyboard in Resources */,
 				A2BA73542308823400C3B7A6 /* Assets.xcassets in Resources */,
-				A2BA735F2308AB3A00C3B7A6 /* GoogleService-Info-2.plist in Resources */,
+				A2BA735F2308AB3A00C3B7A6 /* GoogleService-Info.plist in Resources */,
 				A2BA73522308823300C3B7A6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -208,7 +213,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A2BA734F2308823300C3B7A6 /* ViewController.swift in Sources */,
+				A2BA734F2308823300C3B7A6 /* LoginViewController.swift in Sources */,
+				A2767416230A2F90001FA091 /* DashboardViewController.swift in Sources */,
+				A2767418230A2FF8001FA091 /* MessageViewController.swift in Sources */,
 				A2BA734D2308823300C3B7A6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
