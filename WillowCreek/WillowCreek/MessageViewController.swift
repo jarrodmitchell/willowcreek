@@ -58,7 +58,7 @@ class MessageViewController: UIViewController, UITextViewDelegate, UITextFieldDe
     
     
     func enableSendButton() {
-        if !(titleTextField.text == "" && messageTextView.text.isEmpty) {
+        if !(titleTextField.text == "" || messageTextView.text == "Type Here") {
             sendButton.isEnabled = true
         }else{sendButton.isEnabled = false}
     }
@@ -75,6 +75,9 @@ class MessageViewController: UIViewController, UITextViewDelegate, UITextFieldDe
         db.collection("workOrders").addDocument(data: ["tenant" : uid, "title" : title, "message" : message]) { (error) in
             if let error = error {
                 print("Error adding work order: " + error.localizedDescription)
+            }else{
+                print("Successfuly added work order")
+                self.navigationController?.popToRootViewController(animated: true)
             }
         }
     }

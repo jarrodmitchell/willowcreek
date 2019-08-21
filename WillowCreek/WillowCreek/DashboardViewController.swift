@@ -7,18 +7,39 @@
 //
 
 import UIKit
+import Firebase
 
-class DashboardViewController: UIViewController {
+class DashboardViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     var uId: String!
     var uName: String!
-
+    var uType: String!
+    
+    let tableViewCellTitles = [
+        "management": ["Work Order Request", "Active Work Orders", "Tenant Messages"],
+        "tenants": ["Messages", "Active Work Orders", "Announcements"]]
+    let collectionViewCellTitles = [
+        "management": ["Send Announcement", "Send Package Alert", "Send Message To Tenant"],
+        "tenants": ["Send Message To Management", "Send Work Order"]]
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         self.title = uName
         
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.backgroundColor = UIColor.clear
+        
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.backgroundColor = UIColor.clear
     }
     
     
@@ -28,6 +49,7 @@ class DashboardViewController: UIViewController {
             destination.uId = self.uId
         }
     }
+    
     
 
     /*
