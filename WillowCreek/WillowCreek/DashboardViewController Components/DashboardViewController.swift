@@ -15,9 +15,16 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var collectionView: UICollectionView!
     
+    let db = Firestore.firestore()
+    var workOrders = [WorkOrder]()
+    
     var uId: String!
     var uName: String!
     var uType: String!
+    var workOrderCount: Int!
+    var requestCount: Int?
+    var messageCount: Int?
+    var announcementCount: Int?
     
     let tableViewCellTitles = [
         "management": ["Work Order Request", "Active Work Orders", "Tenant Messages"],
@@ -31,6 +38,7 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
         self.title = uName
         
         tableView.delegate = self

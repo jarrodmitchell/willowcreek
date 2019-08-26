@@ -12,10 +12,17 @@ import Firebase
 class MessageViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var tenantLabel: UILabel!
+    @IBOutlet weak var tenantTextField: UITextField!
     @IBOutlet weak var messageTextView: UITextView!
     @IBOutlet weak var sendButton: UIButton!
     
     var uId: String!
+    var uType: String!
+    var index: Int!
+    var vcTitle: String!
+    
+    let db = Firestore.firestore()
     
     
     override func viewDidLoad() {
@@ -26,6 +33,11 @@ class MessageViewController: UIViewController, UITextViewDelegate, UITextFieldDe
         messageTextView.delegate = self
         messageTextView.textColor = UIColor.lightGray
         messageTextView.text = "Type Here"
+        title = vcTitle
+        if uType == "tenants" && index == 0 {
+            tenantLabel.isHidden = false
+            tenantTextField.isHidden = false
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -66,20 +78,42 @@ class MessageViewController: UIViewController, UITextViewDelegate, UITextFieldDe
     
     
     @IBAction func sendButtonTapped(_ sender: Any) {
-        let db = Firestore.firestore()
-        
         guard let uid = uId else{return}
+        print("uid success")
         guard let message = messageTextView.text else{return}
+        print("message success")
         guard let title = titleTextField.text else {return}
+        print("title success")
         
-        db.collection("workOrders").addDocument(data: ["tenant" : uid, "title" : title, "message" : message]) { (error) in
-            if let error = error {
-                print("Error adding work order: " + error.localizedDescription)
-            }else{
-                print("Successfuly added work order")
-                self.navigationController?.popToRootViewController(animated: true)
+        if uType == "tenants" && index == 0 {
+            
+            db.collection("messages").addDocument(data: ["sender" : uid, "recipient": tenantTextField.text ?? "management", "title" : title, "message" : message]) { (error) in
+                if let error = error {
+                    print("Error adding work order: " + error.localizedDescription)
+                }else{
+                    print("Successfuly added work order")
+                    self.navigationController?.popToRootViewController(animated: true)
+                }
             }
+            
+        }else if index == 0 {
+            
+        }else if uType == "tenants" && index == 1 {
+            db.collection("workOrders").addDocument(data: ["tenant" : uid, "title" : title, "message" : message, "reviewed": false, "active": false]) { (error) in
+                if let error = error {
+                    print("Error adding work order: " + error.localizedDescription)
+                }else{
+                    print("Successfuly added work order")
+                    self.navigationController?.popViewController(animated: true)
+                }
+            }
+            
+        }else if index == 1 {
+            
+        }else{
+            
         }
+        
     }
     
     /*

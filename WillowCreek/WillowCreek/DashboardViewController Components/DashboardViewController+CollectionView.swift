@@ -34,4 +34,29 @@ extension DashboardViewController {
         
         return cell
     }
+    
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        func openMessageVC(vcTitle: String) {
+            let messageVC = self.storyboard?.instantiateViewController(withIdentifier: "message") as! MessageViewController
+            messageVC.vcTitle = vcTitle
+            messageVC.uType = uType
+            messageVC.uId = uId
+            messageVC.index = indexPath.row
+            self.navigationController?.pushViewController(messageVC, animated: true)
+        }
+        
+        if indexPath.row == 0 && uType == "tenants" {
+            openMessageVC(vcTitle: "Send Messsage To Managment")
+        }else if indexPath.row == 0 {
+            openMessageVC(vcTitle: "Send Announcement")
+        }else if indexPath.row == 1 && uType == "tenants" {
+            openMessageVC(vcTitle: "Send Work Order")
+        }else if indexPath.row == 1 {
+            
+        }else{
+            openMessageVC(vcTitle: "Send Message To Tenant")
+        }
+    }
 }
