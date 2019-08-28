@@ -16,8 +16,6 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     
-    let db = Firestore.firestore()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +42,9 @@ class LoginViewController: UIViewController {
     
     
     func login(email: String, password: String) {
+        
+        let db = Firestore.firestore()
+        
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
             if let error = error {
                 print("Error logging in: " + error.localizedDescription)
@@ -53,14 +54,14 @@ class LoginViewController: UIViewController {
                 guard let uid = result?.user.uid else{return}
                 guard let dashboardVC = self.storyboard?.instantiateViewController(withIdentifier: "dashboard") as? DashboardViewController else {return}
                 
-                self.db.collection("users").document(uid).getDocument(completion: { (snapshot, error) in
+                db.collection("users").document(uid).getDocument(completion: { (snapshot, error) in
                     if let error = error {
                         print("Error retrieving account type" + error.localizedDescription)
                     }else{
                         print("Successfully retrieved account type")
                         guard let data = snapshot?.data(), let type = data["type"] as? String else{return}
                         
-                        self.db.collection(type).document(uid).getDocument(completion: { (snapshot, error) in
+                        db.collection(type).document(uid).getDocument(completion: { (snapshot, error) in
                             if let error = error {
                                 print("Error retrieving data" + error.localizedDescription)
                             }else{
@@ -72,39 +73,47 @@ class LoginViewController: UIViewController {
                                 dashboardVC.uType = type
                                 
                                 if type == "tenants" {
-                                    self.db.collection("tenants").document(uid).addSnapshotListener({ (snapshot, error) in
+                                    db.collection("tenants").document(uid).addSnapshotListener({ (snapshot, error) in
                                         if let error = error {
                                             print("Error retrieving tenant address: " + error.localizedDescription)
                                         }else{
                                             print("Success getting tenant address")
                                             let address = snapshot?.data()!["address"] as! String
-                                            self.db.collection("workOrders").whereField("address", isEqualTo: address).addSnapshotListener { (snapshot, error) in
+                                            dashboardVC.address = address
+                                            
+                                            db.collection("workOrders").whereField("address", isEqualTo: address).addSnapshotListener { (snapshot, error) in
                                                 if let error = error {
                                                     print("Error getting work order count: " + error.localizedDescription)
                                                 }else{
                                                     print("Successfully retrieved work order count")
                                                     dashboardVC.workOrderCount = snapshot?.count
                                                     print(dashboardVC.workOrderCount.debugDescription)
-                                                    let navController = UINavigationController(rootViewController: dashboardVC)
-                                                    navController.navigationBar.backgroundColor = UIColor.white
-                                                    self.present(navController, animated: true, completion: nil)
+                                                    self.openDashboardVC(dashboardVC: dashboardVC)
                                                 }
                                             }
                                         }
                                     })
                                 }else if type == "management" {
-                                    self.db.collection("workOrders").whereField("reviewed", isEqualTo: false).addSnapshotListener({ (snapshot, error) in
+                                    
+                                    let maintenance = Maintenance(_id: "", first: "", last: "")
+                                    maintenance.getMaintenance()
+                                    
+                                    db.collection("workOrders").whereField("reviewed", isEqualTo: false).addSnapshotListener({ (snapshot, error) in
                                         if let error = error {
                                             print("Error getting pending work orders: " + error.localizedDescription)
                                         }else{
                                             print("Successfuly retrieved pending work orders")
                                             dashboardVC.requestCount = snapshot?.count
-                                            self.db.collection("workOrders").whereField("active", isEqualTo: true).addSnapshotListener({ (snapshot, error) in
+                                            print(dashboardVC.requestCount.debugDescription)
+                                            db.collection("workOrders").whereField("active", isEqualTo: true).whereField("reviewed", isEqualTo: true).addSnapshotListener({ (snapshot, error) in
                                                 if let error = error {
                                                     print("Error getting active work orders: " + error.localizedDescription)
                                                 }else{
-                                                    print("Successfuly retrieved pending work orders")
+                                                    print("Successfuly retrieved active work orders")
+                                                    dashboardVC.maintenance = maintenance
                                                     dashboardVC.workOrderCount = snapshot?.count
+                                                    print(dashboardVC.workOrderCount.debugDescription)
+                                                    self.openDashboardVC(dashboardVC: dashboardVC)
                                                 }
                                             })
                                         }
@@ -117,6 +126,14 @@ class LoginViewController: UIViewController {
                 
             }
         }
+    }
+    
+    
+    
+    func openDashboardVC(dashboardVC: DashboardViewController) {
+        let navController = UINavigationController(rootViewController: dashboardVC)
+        navController.navigationBar.backgroundColor = UIColor.white
+        self.present(navController, animated: true, completion: nil)
     }
 
 

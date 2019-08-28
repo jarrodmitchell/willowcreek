@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		7DB7DA5DA3A7DAFA02BF3447 /* Pods_WillowCreek.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA748ACEB1D9C740752F0B73 /* Pods_WillowCreek.framework */; };
+		A22D95A12315D6E90002DF27 /* MaintenanceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22D95A02315D6E90002DF27 /* MaintenanceTableViewCell.swift */; };
+		A22D95A32315D7080002DF27 /* UpdateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22D95A22315D7080002DF27 /* UpdateTableViewCell.swift */; };
+		A22D95A62315EC5A0002DF27 /* Maintenance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22D95A52315EC5A0002DF27 /* Maintenance.swift */; };
 		A235A583231311B000F04698 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A235A582231311B000F04698 /* MessageTableViewCell.swift */; };
 		A235A585231319BF00F04698 /* WorkOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A235A584231319BF00F04698 /* WorkOrder.swift */; };
 		A235A58823138A1000F04698 /* WorkOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A235A58723138A1000F04698 /* WorkOrderViewController.swift */; };
@@ -28,6 +31,9 @@
 
 /* Begin PBXFileReference section */
 		87938F6FA0631C461C628EF3 /* Pods-WillowCreek.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WillowCreek.release.xcconfig"; path = "Target Support Files/Pods-WillowCreek/Pods-WillowCreek.release.xcconfig"; sourceTree = "<group>"; };
+		A22D95A02315D6E90002DF27 /* MaintenanceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceTableViewCell.swift; sourceTree = "<group>"; };
+		A22D95A22315D7080002DF27 /* UpdateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTableViewCell.swift; sourceTree = "<group>"; };
+		A22D95A52315EC5A0002DF27 /* Maintenance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Maintenance.swift; sourceTree = "<group>"; };
 		A235A582231311B000F04698 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
 		A235A584231319BF00F04698 /* WorkOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkOrder.swift; sourceTree = "<group>"; };
 		A235A58723138A1000F04698 /* WorkOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkOrderViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +76,25 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A22D95A42315D7120002DF27 /* WorkOrderViewController Components */ = {
+			isa = PBXGroup;
+			children = (
+				A235A58723138A1000F04698 /* WorkOrderViewController.swift */,
+				A22D95A02315D6E90002DF27 /* MaintenanceTableViewCell.swift */,
+				A22D95A22315D7080002DF27 /* UpdateTableViewCell.swift */,
+			);
+			path = "WorkOrderViewController Components";
+			sourceTree = "<group>";
+		};
+		A22D95A72315EC970002DF27 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				A235A584231319BF00F04698 /* WorkOrder.swift */,
+				A22D95A52315EC5A0002DF27 /* Maintenance.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		A235A5862313760400F04698 /* WorkOrdersViewController Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -101,11 +126,11 @@
 			isa = PBXGroup;
 			children = (
 				A2BA734C2308823300C3B7A6 /* AppDelegate.swift */,
-				A235A584231319BF00F04698 /* WorkOrder.swift */,
+				A22D95A72315EC970002DF27 /* Classes */,
 				A2BA734E2308823300C3B7A6 /* LoginViewController.swift */,
 				A2E26D1623108D3A003AA0EA /* DashboardViewController Components */,
 				A235A5862313760400F04698 /* WorkOrdersViewController Components */,
-				A235A58723138A1000F04698 /* WorkOrderViewController.swift */,
+				A22D95A42315D7120002DF27 /* WorkOrderViewController Components */,
 				A2767417230A2FF8001FA091 /* MessageViewController.swift */,
 				A2BA73502308823300C3B7A6 /* Main.storyboard */,
 				A2BA73532308823400C3B7A6 /* Assets.xcassets */,
@@ -257,6 +282,7 @@
 				A2BA734F2308823300C3B7A6 /* LoginViewController.swift in Sources */,
 				A235A58823138A1000F04698 /* WorkOrderViewController.swift in Sources */,
 				A2C9B1A5230DDC9D00685F88 /* CustomCollectionViewCell.swift in Sources */,
+				A22D95A32315D7080002DF27 /* UpdateTableViewCell.swift in Sources */,
 				A235A583231311B000F04698 /* MessageTableViewCell.swift in Sources */,
 				A2502067230CA4B2007260EC /* InboxMenuTableViewCell.swift in Sources */,
 				A2C9B1A7230DDF2B00685F88 /* DashboardViewController+TableView.swift in Sources */,
@@ -264,7 +290,9 @@
 				A235A585231319BF00F04698 /* WorkOrder.swift in Sources */,
 				A2E26D1523108CE0003AA0EA /* WorkOrdersViewController.swift in Sources */,
 				A2767418230A2FF8001FA091 /* MessageViewController.swift in Sources */,
+				A22D95A62315EC5A0002DF27 /* Maintenance.swift in Sources */,
 				A2BA734D2308823300C3B7A6 /* AppDelegate.swift in Sources */,
+				A22D95A12315D6E90002DF27 /* MaintenanceTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

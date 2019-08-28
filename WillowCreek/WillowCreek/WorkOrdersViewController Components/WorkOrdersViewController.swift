@@ -7,13 +7,29 @@
 //
 
 import UIKit
+import Firebase
 
-class WorkOrdersViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
+
+protocol UpdateTableViewDelegate {
+    func update()
+}
+
+
+
+class WorkOrdersViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UpdateTableViewDelegate {
+    func update() {
+        self.view.reloadInputViews()
+    }
+    
+    
     
     @IBOutlet weak var messageTableView: UITableView!
     
     var cellGradientLayer: CAGradientLayer?
     var workOrders: [WorkOrder]!
+    var uType: String!
+    var maintenance: Maintenance?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,8 +87,14 @@ class WorkOrdersViewController: UIViewController, UITableViewDelegate, UITableVi
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        maintenance?.getActiveWorkOrderCounts()
+        
         let workOrderVC = self.storyboard?.instantiateViewController(withIdentifier: "workOrder") as! WorkOrderViewController
         workOrderVC.workOrder = workOrders[indexPath.section]
+        workOrderVC.uType = uType
+        if let maintenance = maintenance {
+            workOrderVC.maintenance = maintenance
+        }
         self.navigationController?.pushViewController(workOrderVC, animated: true)
     }
     

@@ -21,10 +21,12 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
     var uId: String!
     var uName: String!
     var uType: String!
+    var address: String?
     var workOrderCount: Int!
     var requestCount: Int?
     var messageCount: Int?
     var announcementCount: Int?
+    var maintenance: Maintenance?
     
     let tableViewCellTitles = [
         "management": ["Work Order Request", "Active Work Orders", "Tenant Messages"],
