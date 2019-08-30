@@ -46,6 +46,7 @@ class WorkOrderViewController: UIViewController, UITableViewDataSource, UITableV
         backgroundView.layer.cornerRadius = 6
         finishButton.isHidden = true
         
+        //display workers assinged to work order if a tenant is viewing a work order or manangement is viewing a reviewed order display updates
         if uType == "tenants" || workOrder.reviewed == true {
             var workers = "Workers:  "
             if let maintenance = workOrder.maintenanceStaff {
@@ -84,6 +85,7 @@ class WorkOrderViewController: UIViewController, UITableViewDataSource, UITableV
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         print("here")
+        //if a tenant is viewing a work order or manangement is viewing a reviewed order display updates
         if uType == "tenants" || workOrder.reviewed == true {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "updateCell2", for: indexPath) as? UpdateTableViewCell, let update = updates?[indexPath.row] {
                 cell.titleLabel.text = update.title
@@ -93,6 +95,7 @@ class WorkOrderViewController: UIViewController, UITableViewDataSource, UITableV
                 cell.countLabel.text = String(indexPath.row + 1)
                 return cell
             }
+            //if manangement is viewing an unreviewed work order show maintence
         }else{
             if let cell = tableView.dequeueReusableCell(withIdentifier: "maintenanceCell", for: indexPath) as? MaintenanceTableViewCell, let maintenance = maintenance {
                 cell.name.text = maintenance.maintenance[indexPath.row].name
@@ -128,6 +131,7 @@ class WorkOrderViewController: UIViewController, UITableViewDataSource, UITableV
     
     
     
+    //update dashboard tableview
     override func viewWillDisappear(_ animated: Bool) {
         if addMaintenance == true {
             workOrdersDelegate.dashboardDelegate()
@@ -136,6 +140,7 @@ class WorkOrderViewController: UIViewController, UITableViewDataSource, UITableV
     
     
     
+    //add selected maintenace staff to work order
     @IBAction func finishButtonTapped(_ sender: Any) {
         if let id = self.workOrder.id {
             var selectedPersonnel = [String]()

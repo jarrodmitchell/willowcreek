@@ -44,6 +44,7 @@ class LoginViewController: UIViewController {
     
     
     
+    //attempt to sign into firebase if login button is tapped
     @IBAction func loginButtonTapped(_ sender: Any) {
         guard emailTextField.text?.isEmpty == false, passwordTextField.text?.isEmpty == false else
         {//verify that the user has filled in an email and password
@@ -62,12 +63,22 @@ class LoginViewController: UIViewController {
     
     
     
+    //authorize user with firebase  sign in
     func authUser() {
         let db = Firestore.firestore()
         
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
             if let error = error {
                 print("Error logging in: " + error.localizedDescription)
+                
+                //alert user of error
+                let alert = UIAlertController.init(title: "", message: "Your email or password is incorrect", preferredStyle: .alert)
+                let ok = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                alert.addAction(ok)
+                DispatchQueue.main.async {
+                    self.present(alert, animated: true, completion: nil)
+                }
+                
             }
             else{
                 print("Successfully logged in")

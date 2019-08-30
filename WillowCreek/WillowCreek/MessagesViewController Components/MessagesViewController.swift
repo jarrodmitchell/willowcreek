@@ -59,12 +59,15 @@ class MessagesViewController: UIViewController, UITableViewDelegate, UITableView
     
     
     
+    //go to message view controller
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination as! MessageViewController
         
+        //if user is management pass that information to the message view controller
         if uType == "management" {
             destination.index = 2
             destination.recipient = "management"
+            //or pass tenant info
         }else{
             destination.index = 0
             destination.recipient = self.messages![sender as! Int].sender

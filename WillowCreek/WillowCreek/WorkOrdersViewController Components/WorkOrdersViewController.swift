@@ -96,6 +96,7 @@ class WorkOrdersViewController: UIViewController, UITableViewDelegate, UITableVi
     
     
     
+    //get work order updates when a work order has been selected
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.updates = [Update]()
         
@@ -146,6 +147,7 @@ class WorkOrdersViewController: UIViewController, UITableViewDelegate, UITableVi
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let indexPath = sender as? IndexPath else{return}
         
+        //go to update view controller
         switch segue.identifier {
         case "updateSegue":
             if let destination = segue.destination as? UpdateViewController {
@@ -160,6 +162,7 @@ class WorkOrdersViewController: UIViewController, UITableViewDelegate, UITableVi
                     destination.maintenance = maintenance
                 }
             }
+            //go to work order view contrlller
         case "workOrderSegue":
             if let destination = segue.destination as? WorkOrderViewController {
                 destination.workOrder = workOrders[indexPath.section]

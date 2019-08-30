@@ -45,6 +45,7 @@ extension DashboardViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "inboxMenuCell", for: indexPath) as! InboxMenuTableViewCell
         
+        //assing cell title based on user type
         if let type = uType {
             if type == "maintenance" {
                 cell.titleLabel.text = "Active Work Orders"
@@ -53,9 +54,13 @@ extension DashboardViewController {
             }
         }
         
+        
+        
+        //set table view cell data
         switch indexPath.section {
         case 0:
             cell.backgroundColor = UIColor(displayP3Red: 49.0/255.0, green: 146.0/255.0, blue: 160.0/255.0, alpha: 1.0)
+            //assing count label based on user type
             if uType == "management" || uType == "maintenance"{
                 cell.countLabel.text = String(requestCount ?? 0)
             }else{
@@ -80,7 +85,7 @@ extension DashboardViewController {
     }
     
     
-    
+    //get each maintenance worker's active workorder counts when a work order is selected
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let maintenance = maintenance {
             maintenance.getActiveWorkOrderCounts()

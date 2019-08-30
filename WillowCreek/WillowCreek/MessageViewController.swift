@@ -93,6 +93,7 @@ class MessageViewController: UIViewController, UITextViewDelegate, UITextFieldDe
     
     
     
+    //retrieve tenants to pass to search view controller
     func getTenants(completionHandler: @escaping () -> Void) {
         Firestore.firestore().collection("tenants").addSnapshotListener { (snapshot, error) in
             if let error = error {
@@ -119,6 +120,7 @@ class MessageViewController: UIViewController, UITextViewDelegate, UITextFieldDe
     
     
     
+    //open search view controller when the select tenant button is tapped
     @IBAction func selectTenantButtonTapped(_ sender: Any) {
         getTenants {
             self.performSegue(withIdentifier: "searchSegue", sender: nil)
@@ -176,6 +178,7 @@ class MessageViewController: UIViewController, UITextViewDelegate, UITextFieldDe
         print("title success")
         print("update")
         
+        //add  message from tenant to firestore
         if uType == "tenants" && index == 0 {
             self.sender = uid
             db.collection("messages").addDocument(data: ["sender" : self.sender!, "recipient": "management", "title" : title, "message" : message, "timeStamp": Date.init(), "viewed": false]) { (error) in
@@ -187,6 +190,7 @@ class MessageViewController: UIViewController, UITextViewDelegate, UITextFieldDe
                 }
             }
             
+            //add update form maintenace to firestore
         }else if uType == "maintenance" && index == 0 {
             if let woId = workOrderId {
                 db.collection("updates").addDocument(data: ["workOrderId" : woId, "title": title, "message": message, "timeStamp": Date.init()]).addSnapshotListener { (snapshot, error) in
@@ -200,6 +204,7 @@ class MessageViewController: UIViewController, UITextViewDelegate, UITextFieldDe
                 }
             }
             
+            //add announcement form management to firestore
         }else if index == 0 {
             db.collection("announcements").addDocument(data: ["sender": uid, "message": message, "timeStamp": Date.init()]).addSnapshotListener { (snapshot, error) in
                 if let error = error {
@@ -210,6 +215,7 @@ class MessageViewController: UIViewController, UITextViewDelegate, UITextFieldDe
                 }
             }
             
+            //add work  order form tenant to firestore
         }else if uType == "tenants" && index == 1 {
             guard let address = uAddress else{return}
             

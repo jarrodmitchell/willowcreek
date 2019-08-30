@@ -18,6 +18,7 @@ protocol DashboardViewControllerDelegate {
 
 class DashboardViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, DashboardViewControllerDelegate {
     
+    //update table view when a work order is reviewed
     func workOrderRequestCountChanged() {
         if let requests = requestCount{
             requestCount = requests-1
@@ -30,6 +31,7 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
         }
     }
     
+    //update table view when a work order is completed
     func workOrderCompleted() {
         workOrderCount-=1
         
@@ -38,6 +40,7 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
         }
     }
     
+    //udpate tableview when a work order is added
     func workOrderAdded() {
         workOrderCount+=1
         
@@ -108,6 +111,7 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
             
             let cell = tableView.cellForRow(at: indexPath) as? InboxMenuTableViewCell
             
+            //open work orders viewcontroller
             switch segue.identifier {
             case "workOrdersSegue":
                 if let destination = segue.destination as? WorkOrdersViewController {
@@ -126,15 +130,18 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
                         destination.vcTitle = "Active Work Orders"
                     }
                 }
+                //open messages view controller
             case "messageSegue":
                 if let destination = segue.destination as? MessageViewController {
                     destination.uId = self.uId
                     destination.uType = self.uType
                 }
+                //open announcements view controller
             case "announcementSegue":
                 if let destination = segue.destination as? AnnouncementsViewController {
                     destination.announcements = self.announcements
                 }
+                //open messages viewcontroller
             case "messagesSegue":
                 if let destination = segue.destination as? MessagesViewController {
                     destination.messages = self.messages
@@ -145,6 +152,7 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
                 break
             }
         }else{
+            //assign cell color to view table views in denstination viewcontroller
             if let destination = segue.destination as? WorkOrdersViewController {
                 destination.uType = uType
                 destination.cellBackColor = UIColor(displayP3Red: 41.0/255.0, green: 91.0/255.0, blue: 160.0/255.0, alpha: 1.0)
@@ -160,6 +168,8 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     
+    
+    //log out of application
     @IBAction func signOutTapped(_ sender: Any) {
         let alert = UIAlertController(title: "Sign Out", message: "Are you sure you want to sign out?", preferredStyle: .alert)
         let ok = UIAlertAction(title: "Sign Out", style: .default) { (action) in

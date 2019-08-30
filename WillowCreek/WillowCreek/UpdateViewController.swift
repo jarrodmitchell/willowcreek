@@ -84,6 +84,7 @@ class UpdateViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     
     
+    //display updates
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "updateCell", for: indexPath) as? UpdateTableViewCell, let update = update?[indexPath.row] {
             cell.titleLabel.text = update.title
@@ -117,6 +118,7 @@ class UpdateViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     
     
+    //work order is updated to show completion
     @IBAction func workOrderCompleteButtonTapped(_ sender: Any) {
         let alert = UIAlertController(title: "Confirm Completion", message: "Please confirm that that the work order is complete", preferredStyle: .alert)
         let ok = UIAlertAction(title: "Confirm", style: .default) { (alertAction) in

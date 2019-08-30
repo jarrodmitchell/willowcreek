@@ -64,12 +64,16 @@ extension DashboardViewController {
                 self.navigationController?.pushViewController(messageVC, animated: true)
             }
             
+            //select message view controller titlte according to user and message type
             if indexPath.row == 0 && self.uType == "tenants" {
                 openMessageVC(vcTitle: "Send Messsage To Managment")
+                
             }else if indexPath.row == 0 {
                 openMessageVC(vcTitle: "Send Announcement")
+                
             }else if indexPath.row == 1 && self.uType == "tenants" {
                 openMessageVC(vcTitle: "Send Work Order")
+                
             }else if indexPath.row == 1 {
                 
             }else{

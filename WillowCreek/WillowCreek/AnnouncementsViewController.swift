@@ -32,6 +32,7 @@ class AnnouncementsViewController: UIViewController, UITableViewDataSource, UITa
     
     
     
+    //display announcement
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "reuseCell") {
             cell.textLabel?.text = announcements[indexPath.row].date ?? ""

@@ -30,6 +30,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     
     
     
+    //if filtered array is blank show all tenants
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if filteredArray.count > 0 {
         }else{
@@ -40,6 +41,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     
     
     
+    //if a tenant is selected pass it back to the message view controller
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         messageDelegate.getTenant(tenant: filteredArray[indexPath.row])
         self.navigationController?.popViewController(animated: true)
@@ -47,6 +49,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     
     
     
+    //display filtered array values based
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "searchCell", for: indexPath)
         
@@ -60,6 +63,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     
     
     
+    //udpate filtered array values based on search values
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         filteredArray = tenants.filter { (tenant) -> Bool in
             if let search = searchBar.text {

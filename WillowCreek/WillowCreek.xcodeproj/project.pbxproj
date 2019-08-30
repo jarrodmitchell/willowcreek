@@ -485,11 +485,11 @@
 			baseConfigurationReference = E5B5DD817B63E380450E6538 /* Pods-WillowCreek.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: jcmitchell@student.fullsail.edu (37979JZ7C2)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9H9KFL6L74;
 				INFOPLIST_FILE = WillowCreek/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -507,11 +507,11 @@
 			baseConfigurationReference = 87938F6FA0631C461C628EF3 /* Pods-WillowCreek.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: jcmitchell@student.fullsail.edu (37979JZ7C2)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9H9KFL6L74;
 				INFOPLIST_FILE = WillowCreek/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
