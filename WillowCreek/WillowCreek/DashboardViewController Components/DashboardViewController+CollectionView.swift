@@ -12,7 +12,11 @@ import UIKit
 extension DashboardViewController {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return (collectionViewCellTitles[uType]!).count
+        if uType == "maintenance" {
+            return 0
+        }else{
+            return (collectionViewCellTitles[uType]!).count
+        }
     }
     
     
@@ -38,25 +42,39 @@ extension DashboardViewController {
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        func openMessageVC(vcTitle: String) {
-            let messageVC = self.storyboard?.instantiateViewController(withIdentifier: "message") as! MessageViewController
-            messageVC.vcTitle = vcTitle
-            messageVC.uType = uType
-            messageVC.uId = uId
-            messageVC.index = indexPath.row
-            self.navigationController?.pushViewController(messageVC, animated: true)
-        }
-        
-        if indexPath.row == 0 && uType == "tenants" {
-            openMessageVC(vcTitle: "Send Messsage To Managment")
-        }else if indexPath.row == 0 {
-            openMessageVC(vcTitle: "Send Announcement")
-        }else if indexPath.row == 1 && uType == "tenants" {
-            openMessageVC(vcTitle: "Send Work Order")
-        }else if indexPath.row == 1 {
+        DispatchQueue.main.async {
+            func openMessageVC(vcTitle: String) {
+                let messageVC = self.storyboard?.instantiateViewController(withIdentifier: "message") as! MessageViewController
+                
+                if self.uType == "tenants" {
+                    self.db.collection("tenants").document(self.uId).getDocument { (snapshot, error) in
+                        if let  error = error {
+                            print("Error getting address: " + error.localizedDescription)
+                        }else{
+                            messageVC.uAddress = snapshot?.data()!["address"] as? String
+                            print("Successfully retrieved address")
+                        }
+                    }
+                }
+                messageVC.vcTitle = vcTitle
+                messageVC.uType = self.uType
+                messageVC.uId = self.uId
+                messageVC.index = indexPath.row
+                messageVC.dashDelegate = self
+                self.navigationController?.pushViewController(messageVC, animated: true)
+            }
             
-        }else{
-            openMessageVC(vcTitle: "Send Message To Tenant")
+            if indexPath.row == 0 && self.uType == "tenants" {
+                openMessageVC(vcTitle: "Send Messsage To Managment")
+            }else if indexPath.row == 0 {
+                openMessageVC(vcTitle: "Send Announcement")
+            }else if indexPath.row == 1 && self.uType == "tenants" {
+                openMessageVC(vcTitle: "Send Work Order")
+            }else if indexPath.row == 1 {
+                
+            }else{
+                openMessageVC(vcTitle: "Send Message To Tenant")
+            }
         }
     }
 }

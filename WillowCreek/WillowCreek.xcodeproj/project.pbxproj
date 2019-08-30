@@ -8,10 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		7DB7DA5DA3A7DAFA02BF3447 /* Pods_WillowCreek.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA748ACEB1D9C740752F0B73 /* Pods_WillowCreek.framework */; };
+		A22AF95523190DC70035F5E4 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22AF95423190DC70035F5E4 /* Message.swift */; };
+		A22AF95723197B410035F5E4 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22AF95623197B410035F5E4 /* SearchViewController.swift */; };
+		A22AF95923197C1F0035F5E4 /* Tenant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22AF95823197C1F0035F5E4 /* Tenant.swift */; };
+		A22BE64823189702009D7A52 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22BE64723189702009D7A52 /* MessagesViewController.swift */; };
+		A22BE64C2318BFF3009D7A52 /* Update.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22BE64B2318BFF3009D7A52 /* Update.swift */; };
+		A22BE64E2318E424009D7A52 /* AnnouncementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22BE64D2318E424009D7A52 /* AnnouncementsViewController.swift */; };
+		A22BE6502318E4F7009D7A52 /* Announcement.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22BE64F2318E4F7009D7A52 /* Announcement.swift */; };
+		A22BE652231904DE009D7A52 /* MessagesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22BE651231904DE009D7A52 /* MessagesTableViewCell.swift */; };
 		A22D95A12315D6E90002DF27 /* MaintenanceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22D95A02315D6E90002DF27 /* MaintenanceTableViewCell.swift */; };
 		A22D95A32315D7080002DF27 /* UpdateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22D95A22315D7080002DF27 /* UpdateTableViewCell.swift */; };
 		A22D95A62315EC5A0002DF27 /* Maintenance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22D95A52315EC5A0002DF27 /* Maintenance.swift */; };
-		A235A583231311B000F04698 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A235A582231311B000F04698 /* MessageTableViewCell.swift */; };
+		A22D95A923170E8B0002DF27 /* UpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22D95A823170E8B0002DF27 /* UpdateViewController.swift */; };
+		A235A583231311B000F04698 /* WorkOrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A235A582231311B000F04698 /* WorkOrderTableViewCell.swift */; };
 		A235A585231319BF00F04698 /* WorkOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A235A584231319BF00F04698 /* WorkOrder.swift */; };
 		A235A58823138A1000F04698 /* WorkOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A235A58723138A1000F04698 /* WorkOrderViewController.swift */; };
 		A2502067230CA4B2007260EC /* InboxMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2502066230CA4B2007260EC /* InboxMenuTableViewCell.swift */; };
@@ -31,10 +40,19 @@
 
 /* Begin PBXFileReference section */
 		87938F6FA0631C461C628EF3 /* Pods-WillowCreek.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WillowCreek.release.xcconfig"; path = "Target Support Files/Pods-WillowCreek/Pods-WillowCreek.release.xcconfig"; sourceTree = "<group>"; };
+		A22AF95423190DC70035F5E4 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		A22AF95623197B410035F5E4 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		A22AF95823197C1F0035F5E4 /* Tenant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tenant.swift; sourceTree = "<group>"; };
+		A22BE64723189702009D7A52 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
+		A22BE64B2318BFF3009D7A52 /* Update.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Update.swift; sourceTree = "<group>"; };
+		A22BE64D2318E424009D7A52 /* AnnouncementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementsViewController.swift; sourceTree = "<group>"; };
+		A22BE64F2318E4F7009D7A52 /* Announcement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Announcement.swift; sourceTree = "<group>"; };
+		A22BE651231904DE009D7A52 /* MessagesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesTableViewCell.swift; sourceTree = "<group>"; };
 		A22D95A02315D6E90002DF27 /* MaintenanceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceTableViewCell.swift; sourceTree = "<group>"; };
 		A22D95A22315D7080002DF27 /* UpdateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTableViewCell.swift; sourceTree = "<group>"; };
 		A22D95A52315EC5A0002DF27 /* Maintenance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Maintenance.swift; sourceTree = "<group>"; };
-		A235A582231311B000F04698 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
+		A22D95A823170E8B0002DF27 /* UpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateViewController.swift; sourceTree = "<group>"; };
+		A235A582231311B000F04698 /* WorkOrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkOrderTableViewCell.swift; sourceTree = "<group>"; };
 		A235A584231319BF00F04698 /* WorkOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkOrder.swift; sourceTree = "<group>"; };
 		A235A58723138A1000F04698 /* WorkOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkOrderViewController.swift; sourceTree = "<group>"; };
 		A2502066230CA4B2007260EC /* InboxMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxMenuTableViewCell.swift; sourceTree = "<group>"; };
@@ -76,12 +94,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A22AF95323190C730035F5E4 /* MessagesViewController Components */ = {
+			isa = PBXGroup;
+			children = (
+				A22BE64723189702009D7A52 /* MessagesViewController.swift */,
+				A22BE651231904DE009D7A52 /* MessagesTableViewCell.swift */,
+			);
+			path = "MessagesViewController Components";
+			sourceTree = "<group>";
+		};
 		A22D95A42315D7120002DF27 /* WorkOrderViewController Components */ = {
 			isa = PBXGroup;
 			children = (
 				A235A58723138A1000F04698 /* WorkOrderViewController.swift */,
 				A22D95A02315D6E90002DF27 /* MaintenanceTableViewCell.swift */,
-				A22D95A22315D7080002DF27 /* UpdateTableViewCell.swift */,
 			);
 			path = "WorkOrderViewController Components";
 			sourceTree = "<group>";
@@ -90,7 +116,11 @@
 			isa = PBXGroup;
 			children = (
 				A235A584231319BF00F04698 /* WorkOrder.swift */,
+				A22BE64B2318BFF3009D7A52 /* Update.swift */,
+				A22BE64F2318E4F7009D7A52 /* Announcement.swift */,
+				A22AF95823197C1F0035F5E4 /* Tenant.swift */,
 				A22D95A52315EC5A0002DF27 /* Maintenance.swift */,
+				A22AF95423190DC70035F5E4 /* Message.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -99,7 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				A2E26D1423108CE0003AA0EA /* WorkOrdersViewController.swift */,
-				A235A582231311B000F04698 /* MessageTableViewCell.swift */,
+				A235A582231311B000F04698 /* WorkOrderTableViewCell.swift */,
 			);
 			path = "WorkOrdersViewController Components";
 			sourceTree = "<group>";
@@ -131,7 +161,12 @@
 				A2E26D1623108D3A003AA0EA /* DashboardViewController Components */,
 				A235A5862313760400F04698 /* WorkOrdersViewController Components */,
 				A22D95A42315D7120002DF27 /* WorkOrderViewController Components */,
+				A22D95A823170E8B0002DF27 /* UpdateViewController.swift */,
+				A22D95A22315D7080002DF27 /* UpdateTableViewCell.swift */,
+				A22AF95323190C730035F5E4 /* MessagesViewController Components */,
 				A2767417230A2FF8001FA091 /* MessageViewController.swift */,
+				A22AF95623197B410035F5E4 /* SearchViewController.swift */,
+				A22BE64D2318E424009D7A52 /* AnnouncementsViewController.swift */,
 				A2BA73502308823300C3B7A6 /* Main.storyboard */,
 				A2BA73532308823400C3B7A6 /* Assets.xcassets */,
 				A2BA73552308823400C3B7A6 /* LaunchScreen.storyboard */,
@@ -281,17 +316,26 @@
 				A2C9B1A9230DEE5700685F88 /* DashboardViewController+CollectionView.swift in Sources */,
 				A2BA734F2308823300C3B7A6 /* LoginViewController.swift in Sources */,
 				A235A58823138A1000F04698 /* WorkOrderViewController.swift in Sources */,
+				A22BE64823189702009D7A52 /* MessagesViewController.swift in Sources */,
 				A2C9B1A5230DDC9D00685F88 /* CustomCollectionViewCell.swift in Sources */,
 				A22D95A32315D7080002DF27 /* UpdateTableViewCell.swift in Sources */,
-				A235A583231311B000F04698 /* MessageTableViewCell.swift in Sources */,
+				A235A583231311B000F04698 /* WorkOrderTableViewCell.swift in Sources */,
 				A2502067230CA4B2007260EC /* InboxMenuTableViewCell.swift in Sources */,
+				A22BE6502318E4F7009D7A52 /* Announcement.swift in Sources */,
+				A22AF95923197C1F0035F5E4 /* Tenant.swift in Sources */,
+				A22D95A923170E8B0002DF27 /* UpdateViewController.swift in Sources */,
 				A2C9B1A7230DDF2B00685F88 /* DashboardViewController+TableView.swift in Sources */,
 				A2767416230A2F90001FA091 /* DashboardViewController.swift in Sources */,
 				A235A585231319BF00F04698 /* WorkOrder.swift in Sources */,
+				A22AF95723197B410035F5E4 /* SearchViewController.swift in Sources */,
+				A22BE64C2318BFF3009D7A52 /* Update.swift in Sources */,
+				A22BE652231904DE009D7A52 /* MessagesTableViewCell.swift in Sources */,
 				A2E26D1523108CE0003AA0EA /* WorkOrdersViewController.swift in Sources */,
 				A2767418230A2FF8001FA091 /* MessageViewController.swift in Sources */,
+				A22AF95523190DC70035F5E4 /* Message.swift in Sources */,
 				A22D95A62315EC5A0002DF27 /* Maintenance.swift in Sources */,
 				A2BA734D2308823300C3B7A6 /* AppDelegate.swift in Sources */,
+				A22BE64E2318E424009D7A52 /* AnnouncementsViewController.swift in Sources */,
 				A22D95A12315D6E90002DF27 /* MaintenanceTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -350,7 +394,8 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: monas@tuta.io (DYLGWH328P)";
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -411,7 +456,8 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: monas@tuta.io (DYLGWH328P)";
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -439,16 +485,20 @@
 			baseConfigurationReference = E5B5DD817B63E380450E6538 /* Pods-WillowCreek.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9H9KFL6L74;
 				INFOPLIST_FILE = WillowCreek/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.water7.WillowCreek;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -457,16 +507,20 @@
 			baseConfigurationReference = 87938F6FA0631C461C628EF3 /* Pods-WillowCreek.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9H9KFL6L74;
 				INFOPLIST_FILE = WillowCreek/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.water7.WillowCreek;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

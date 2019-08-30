@@ -22,8 +22,11 @@ class WorkOrderViewController: UIViewController, UITableViewDataSource, UITableV
     
     var workOrder: WorkOrder!
     var uType: String!
-    var update: [String]?
+    var status: Bool!
+    var updates: [Update]?
     var maintenance: Maintenance?
+    var workOrdersDelegate: WorkOrdersViewControllerDelegate!
+    var addMaintenance = false
     
     
     override func viewDidLoad() {
@@ -32,13 +35,31 @@ class WorkOrderViewController: UIViewController, UITableViewDataSource, UITableV
         // Do any additional setup after loading the view.
         updateTableView.delegate = self
         updateTableView.dataSource = self
+        updateTableView.estimatedRowHeight = 130
+        updateTableView.rowHeight = UITableView.automaticDimension
+        
+        let address = workOrder.address.split(separator: ",")
+        title = String(address[0])
         
         titleLabel.text = workOrder.title
         messageTextView.text = workOrder.message
         backgroundView.layer.cornerRadius = 6
         finishButton.isHidden = true
         
-        if uType == "tenants" {
+        if uType == "tenants" || workOrder.reviewed == true {
+            var workers = "Workers:  "
+            if let maintenance = workOrder.maintenanceStaff {
+                var count = 0
+                for personnel in maintenance {
+                    print(personnel)
+                    workers.append(personnel)
+                    count+=1
+                    if count != maintenance.count {
+                        workers.append(", ")
+                    }
+                }
+                workersLabel.text = workers
+            }
             workersLabel.isHidden = false
         }else{
             assignMaintenanceLabel.isHidden = false
@@ -49,8 +70,8 @@ class WorkOrderViewController: UIViewController, UITableViewDataSource, UITableV
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if uType == "tenants" {
-            return update?.count ?? 0
+        if uType == "tenants" || workOrder.reviewed == true {
+            return updates?.count ?? 0
         }else{
             if let maintenance = maintenance {
                 print("rows: " + String(maintenance.maintenance.count))
@@ -62,9 +83,15 @@ class WorkOrderViewController: UIViewController, UITableViewDataSource, UITableV
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if uType == "tenants" {
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "updateCell", for: indexPath) as? UpdateTableViewCell {
-                
+        print("here")
+        if uType == "tenants" || workOrder.reviewed == true {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "updateCell2", for: indexPath) as? UpdateTableViewCell, let update = updates?[indexPath.row] {
+                cell.titleLabel.text = update.title
+                cell.messageLabel.text = update.message
+                cell.dateLabel.text = update.date
+                cell.countBackView.layer.cornerRadius = 25
+                cell.countLabel.text = String(indexPath.row + 1)
+                return cell
             }
         }else{
             if let cell = tableView.dequeueReusableCell(withIdentifier: "maintenanceCell", for: indexPath) as? MaintenanceTableViewCell, let maintenance = maintenance {
@@ -80,10 +107,12 @@ class WorkOrderViewController: UIViewController, UITableViewDataSource, UITableV
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath) as! MaintenanceTableViewCell
-        cell.accessoryType = .checkmark
-        
-        finishButton.isHidden = false
+        if uType == "management" && workOrder.reviewed == false {
+            let cell = tableView.cellForRow(at: indexPath) as! MaintenanceTableViewCell
+            cell.accessoryType = .checkmark
+            
+            finishButton.isHidden = false
+        }
     }
     
     
@@ -99,27 +128,31 @@ class WorkOrderViewController: UIViewController, UITableViewDataSource, UITableV
     
     
     
-    @IBAction func finishButtonTapped(_ sender: Any) {
-        let alert = UIAlertController(title: "Assign Personnel", message: "Please confirm selections", preferredStyle: .alert)
-        let ok = UIAlertAction(title: "Confirm", style: .default) { (alertAction) in
-            if let id = self.workOrder.id {
-                var selectedPersonnel = [String]()
-                for index in self.updateTableView.indexPathsForSelectedRows! {
-                    guard let id = self.maintenance?.maintenance[index.row].id else{return}
-                    selectedPersonnel.append(id)
-                }
-                Firestore.firestore().collection("workOrders").document(id).setData(["maintenance" : selectedPersonnel, "reviewed" : true], merge: true, completion: { (error) in
-                    if let error = error {
-                        print("Error adding maintenance workers to work order: " + error.localizedDescription)
-                    }else{print("Success adding maintenance workers to work order")}
-                })
-                self.navigationController?.popToRootViewController(animated: true)
-            }
+    override func viewWillDisappear(_ animated: Bool) {
+        if addMaintenance == true {
+            workOrdersDelegate.dashboardDelegate()
         }
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        alert.addAction(ok)
-        alert.addAction(cancel)
-        present(alert, animated: true, completion: nil)
+    }
+    
+    
+    
+    @IBAction func finishButtonTapped(_ sender: Any) {
+        if let id = self.workOrder.id {
+            var selectedPersonnel = [String]()
+            for index in self.updateTableView.indexPathsForSelectedRows! {
+                guard let id = self.maintenance?.maintenance[index.row].id else{return}
+                selectedPersonnel.append(id)
+            }
+            Firestore.firestore().collection("workOrders").document(id).setData(["maintenance" : selectedPersonnel, "reviewed" : true], merge: true, completion: { (error) in
+                if let error = error {
+                    print("Error adding maintenance workers to work order: " + error.localizedDescription)
+                }else{
+                    print("Success added maintenance workers to work order")
+                    self.addMaintenance = true
+                    self.navigationController?.popToViewController(self.navigationController!.viewControllers[0], animated: true)
+                }
+            })
+        }
     }
     
     /*
